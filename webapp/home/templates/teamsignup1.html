@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Soft Landing Page by Tooplate</title>
+	<!--
+
+    Template 2106 Soft Landing
+
+	http://www.tooplate.com/view/2106-soft-landing
+
+    -->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="team" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="/static/home/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/static/home/css/owl.carousel.css">
+     <link rel="stylesheet" href="/static/home/css/owl.theme.default.min.css">
+     <link rel="stylesheet" href="/static/home/css/font-awesome.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="/static/home/css/tooplate-style.css">
+
+</head>
+<body>
+
+     <!-- PRE LOADER
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section> -->
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="" class="navbar-brand" style="color:black;">Project Tracking</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" >
+                    </ul>    
+               </div>
+
+          </div>
+     </section>
+
+     <!-- CONTACT -->
+     <section  data-stellar-background-ratio="0.5">
+          <div class="container" style="background-color: antiquewhite; padding: 100px; border-radius: 10px;">
+               <div class="row" style="margin: 10px 0px 50px 0px">
+                    <div class="col-md-offset-3 col-md-6 col-sm-12">
+                         <form action="" method="post">
+                              {% csrf_token %}
+                              <div class="form-group">
+                                   <label for="team">Team:</label>
+                                   <select class="form-control" id="team" name="team">
+                                        {% for x in pro %}
+                                             <option value="{{x.id}}">{{x.project_name}}</option>
+                                        {% endfor %}
+                                   </select>
+                                 </div>
+                              <div class="form-group">
+                                   <label for="batch">Batch name :</label>
+                                   <input type="text" class="form-control" name="batch" id="batch">
+                              </div>
+                              <div class="form-group">
+                                   <label for="roll1">Roll1 :</label>
+                                   <input type="text" class="form-control" name="roll1" id="roll1">
+                              </div>
+                              <div class="form-group">
+                                   <label for="phone1">Phone1 :</label>
+                                   <input type="text" class="form-control" name="phone1" id="phone1">
+                              </div>
+                              <div class="form-group">
+                                   <label for="email1">Email1 :</label>
+                                   <input type="text" class="form-control" name="email1" id="email1">
+                              </div>
+
+                              <div class="form-group">
+                                   <label for="roll2">Roll2 :</label>
+                                   <input type="text" class="form-control" name="roll2" id="roll2">
+                              </div>
+                              <div class="form-group">
+                                   <label for="phone2">Phone2 :</label>
+                                   <input type="text" class="form-control" name="phone2" id="phone2">
+                              </div>
+                              <div class="form-group">
+                                   <label for="email2">Email2 :</label>
+                                   <input type="text" class="form-control" name="email2" id="email2">
+                              </div>
+
+                              <div class="form-group">
+                                   <label for="roll3">Roll3 :</label>
+                                   <input type="text" class="form-control" name="roll3" id="roll3">
+                              </div>
+                              <div class="form-group">
+                                   <label for="phone3">Phone3 :</label>
+                                   <input type="text" class="form-control" name="phone3" id="phone3">
+                              </div>
+                              <div class="form-group">
+                                   <label for="email3">Email3 :</label>
+                                   <input type="text" class="form-control" name="email3" id="email3">
+                              </div>
+
+                              <div class="form-group">
+                                   <label for="roll4">Roll4 :</label>
+                                   <input type="text" class="form-control" name="roll4" id="roll4">
+                              </div>
+                              <div class="form-group">
+                                   <label for="phone4">Phone4 :</label>
+                                   <input type="text" class="form-control" name="phone4" id="phone4">
+                              </div>
+                              <div class="form-group">
+                                   <label for="email4">Email4 :</label>
+                                   <input type="text" class="form-control" name="email4" id="email4">
+                              </div>
+                              <button type="submit" class="btn btn-default">Submit</button>
+                         </form>
+                    </div>
+               </div>
+               <div class="row">
+                    <div class="col-md-offset-1 col-md-10 col-sm-12">
+                         <table class="table">
+                              <thead>
+                                   <tr>
+                                        <th>Review name</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Venue</th>
+                                        <th>Team</th>
+                                   </tr>
+                              </thead>
+                              <tbody>
+                                   {% for x in data %}
+                                   <tr>
+                                        <td>{{x.review_name}}</td>
+                                        <td>{{x.date}}</td>
+                                        <td>{{x.time}}</td>
+                                        <td>{{x.venue}}</td>
+                                        <td>{{x.team.team.username}}</td>
+                                   </tr>
+                                   {% endfor %}
+                              </tbody>
+                         </table>
+                    </div>
+               </div>
+
+               </div>
+          </div>
+     </section>       
+
+
+     <!-- FOOTER -->
+     <footer id="footer" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="copyright-text col-md-12 col-sm-12">
+                         <div class="col-md-6 col-sm-6">
+                              <p>Copyright &copy; 2018 Company Name - Design:
+                				<a rel="nofollow" href="http://tooplate.com">Tooplate</a></p>
+                         </div>
+
+                         <div class="col-md-6 col-sm-6">
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                   <li><a href="#" class="fa fa-twitter"></a></li>
+                                   <li><a href="#" class="fa fa-instagram"></a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </footer>
+
+
+     <!-- SCRIPTS -->
+     <script src="/static/home/js/jquery.js"></script>
+     <script src="/static/home/js/bootstrap.min.js"></script>
+     <script src="/static/home/js/jquery.stellar.min.js"></script>
+     <script src="/static/home/js/owl.carousel.min.js"></script>
+     <script src="/static/home/js/smoothscroll.js"></script>
+     <script src="/static/home/js/custom.js"></script>
+
+</body>
+</html>

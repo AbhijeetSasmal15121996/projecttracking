@@ -56,9 +56,7 @@
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" >
-                         <li><a href="cord" class="smoothScroll" style="color:black;" >Home</a></li>
-                         <li><a href="cord_details" class="smoothScroll" style="color:black;">Project Details</a></li>
-                         <li><a href="coorreview" class="smoothScroll" style="color:black;">Reviews</a></li>                         <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
+                         <li><a href="" class="smoothScroll" style="color:black;" >Home</a></li>
                          <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
                     </ul>    
                </div>
@@ -74,15 +72,19 @@
                          <table class="table">
                               <thead>
                                    <tr>
-                                        <th>Project name</th>
-                                        <th>Panel</th>
+                                        <th>Rollno</th>
+                                        <th>Batch</th>
+                                        <th>Review Name</th>
+                                        <th>Marks</th>
                                    </tr>
                               </thead>
                               <tbody>
-                                   {% for x in project %}
+                                   {% for x in re %}
                                    <tr>
-                                        <td>{{x.project_name}}</td>
-                                        <td>{{x.panel_id.panel_name}}</td>
+                                        <td>{{x.student.roll_no}}</td>
+                                        <td>{{x.student.batch}}</td>
+                                        <td>{{x.review_name}}</td>
+                                        <td>{{x.marks}}</td>
                                    </tr>
                                    {% endfor %}
                               </tbody>

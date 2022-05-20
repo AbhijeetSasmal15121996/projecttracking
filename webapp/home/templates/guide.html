@@ -58,8 +58,10 @@
                     <ul class="nav navbar-nav" >
                          <li><a href="cord" class="smoothScroll" style="color:black;" >Home</a></li>
                          <li><a href="cord_details" class="smoothScroll" style="color:black;">Project Details</a></li>
-                         <li><a href="coorreview" class="smoothScroll" style="color:black;">Reviews</a></li>                         <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
-                         <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
+                         <li><a href="coorreview" class="smoothScroll" style="color:black;">Reviews</a></li>
+                         <li><a href=
+                              
+                              "logout" class="smoothScroll" style="color:black;">Logout</a></li>
                     </ul>    
                </div>
 
@@ -69,49 +71,53 @@
      <!-- CONTACT -->
      <section  data-stellar-background-ratio="0.5">
           <div class="container" style="background-color: antiquewhite; padding: 100px; border-radius: 10px;">
+               <div class="row" style="margin: 10px 0px 50px 0px">
+                    <div class="col-md-offset-3 col-md-6 col-sm-12">
+                         <form action="" method="post">
+                              {% csrf_token %}
+                              <div class="form-group">
+                                   <label for="team">Team:</label>
+                                   <select class="form-control" id="team" name="team">
+                                        {% for x in team %}
+                                             <option value="{{x.id}}">{{x.team.team.username}}</option>
+                                        {% endfor %}
+                                   </select>
+                                 </div>
+                              <button type="submit" class="btn btn-default">Submit</button>
+                         </form>
+                    </div>
+               </div>
+               {% if st %}
                <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-sm-12">
                          <table class="table">
                               <thead>
                                    <tr>
-                                        <th>Project name</th>
-                                        <th>Panel</th>
+                                        <th>Batch</th>
+                                        <th>Rollno</th>
+                                        <th>phone</th>
+                                        <th>Email</th>
                                    </tr>
                               </thead>
                               <tbody>
-                                   {% for x in project %}
+                                   {% for x in data %}
+                                   <form method="post" action="guides">
                                    <tr>
-                                        <td>{{x.project_name}}</td>
-                                        <td>{{x.panel_id.panel_name}}</td>
+                                        <td>{{x.batch}}</td>
+                                        <td>{{x.roll_no}}</td>
+                                        <td>{{x.phone}}</td>
+                                        <td>{{x.email}}</td>
+                                        <td><input type="number" name="marks" value="{{x.marks}}"></td>
+                                        <td><button type="submit"></button></td>
                                    </tr>
+                                   </form>
                                    {% endfor %}
                               </tbody>
                          </table>
                     </div>
                </div>
+               {% endif %}
 
-                    <div class="row" style="margin: 100px 0px">
-                         <div class="col-md-offset-1 col-md-12 col-sm-12">
-                              <table class="table">
-                                   <thead>
-                                        <tr>
-                                             <th>Teams</th>
-                                             <th>Guide</th>
-                                             <th>Project Name</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody>
-                                        {% for x in team %}
-                                        <tr>
-                                             <td>{{x.team.username}}</td>
-                                             <td>{{x.guide.user.username}}</td>
-                                             <td>{{x.project.project_name}}</td>
-                                        </tr>
-                                        {% endfor %}
-                                   </tbody>
-                              </table>
-                         </div>
-                    </div>
                </div>
           </div>
      </section>       

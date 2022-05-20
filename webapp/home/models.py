@@ -30,14 +30,13 @@ class Guide(models.Model):
 
 class Team(models.Model):
     id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
-    guide = models.ForeignKey(Guide, on_delete=models.CASCADE)
+    guide = models.ForeignKey(Guide, on_delete=models.CASCADE, null=True)
     team = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
 
 class Student(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    leader = models.BooleanField(default=False)
     batch = models.CharField(max_length=200)
     roll_no = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)

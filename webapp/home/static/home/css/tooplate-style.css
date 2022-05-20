@@ -90,7 +90,7 @@ http://www.tooplate.com/view/2106-soft-landing
   #contact,
   footer {
     background: #ffffff;
-    text-align: center;
+    /* text-align: center; */
   }
 
   .overlay {

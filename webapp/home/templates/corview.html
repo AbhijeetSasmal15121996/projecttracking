@@ -58,7 +58,7 @@
                     <ul class="nav navbar-nav" >
                          <li><a href="cord" class="smoothScroll" style="color:black;" >Home</a></li>
                          <li><a href="cord_details" class="smoothScroll" style="color:black;">Project Details</a></li>
-                         <li><a href="coorreview" class="smoothScroll" style="color:black;">Reviews</a></li>                         <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
+                         <li><a href="coorreview" class="smoothScroll" style="color:black;">Reviews</a></li>
                          <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
                     </ul>    
                </div>
@@ -69,20 +69,58 @@
      <!-- CONTACT -->
      <section  data-stellar-background-ratio="0.5">
           <div class="container" style="background-color: antiquewhite; padding: 100px; border-radius: 10px;">
+               <div class="row" style="margin: 10px 0px 50px 0px">
+                    <div class="col-md-offset-3 col-md-6 col-sm-12">
+                         <form action="" method="post">
+                              {% csrf_token %}
+                              <div class="form-group">
+                                <label for="review_name">Review name :</label>
+                                <input type="text" class="form-control" name="review_name" id="review_name">
+                              </div>
+                              <div class="form-group">
+                                   <label for="date">Date :</label>
+                                   <input type="text" class="form-control" name="date" id="date">
+                              </div>
+                              <div class="form-group">
+                                   <label for="time">Time :</label>
+                                   <input type="text" class="form-control" name="time" id="time">
+                              </div>
+                              <div class="form-group">
+                                   <label for="venue">Venue :</label>
+                                   <input type="text" class="form-control" name="venue" id="venue">
+                              </div>
+                              <div class="form-group">
+                                   <label for="team">Team:</label>
+                                   <select class="form-control" id="team" name="team">
+                                        {% for x in data %}
+                                             <option value="{{x.id}}">{{x.team.team.username}}</option>
+                                        {% endfor %}
+                                   </select>
+                                 </div>
+                              <button type="submit" class="btn btn-default">Submit</button>
+                         </form>
+                    </div>
+               </div>
                <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-sm-12">
                          <table class="table">
                               <thead>
                                    <tr>
-                                        <th>Project name</th>
-                                        <th>Panel</th>
+                                        <th>Review name</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Venue</th>
+                                        <th>Team</th>
                                    </tr>
                               </thead>
                               <tbody>
-                                   {% for x in project %}
+                                   {% for x in data %}
                                    <tr>
-                                        <td>{{x.project_name}}</td>
-                                        <td>{{x.panel_id.panel_name}}</td>
+                                        <td>{{x.review_name}}</td>
+                                        <td>{{x.date}}</td>
+                                        <td>{{x.time}}</td>
+                                        <td>{{x.venue}}</td>
+                                        <td>{{x.team.team.username}}</td>
                                    </tr>
                                    {% endfor %}
                               </tbody>
@@ -90,28 +128,6 @@
                     </div>
                </div>
 
-                    <div class="row" style="margin: 100px 0px">
-                         <div class="col-md-offset-1 col-md-12 col-sm-12">
-                              <table class="table">
-                                   <thead>
-                                        <tr>
-                                             <th>Teams</th>
-                                             <th>Guide</th>
-                                             <th>Project Name</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody>
-                                        {% for x in team %}
-                                        <tr>
-                                             <td>{{x.team.username}}</td>
-                                             <td>{{x.guide.user.username}}</td>
-                                             <td>{{x.project.project_name}}</td>
-                                        </tr>
-                                        {% endfor %}
-                                   </tbody>
-                              </table>
-                         </div>
-                    </div>
                </div>
           </div>
      </section>       
