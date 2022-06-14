@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-	<title>Soft Landing Page by Tooplate</title>
-	<!--
+     <title>Soft Landing Page by Tooplate</title>
+     <!--
 
     Template 2106 Soft Landing
 
@@ -26,6 +27,7 @@
      <link rel="stylesheet" href="/static/home/css/tooplate-style.css">
 
 </head>
+
 <body>
 
      <!-- PRE LOADER
@@ -55,28 +57,36 @@
 
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav" >
-                    </ul>    
+                    <ul class="nav navbar-nav">
+                    </ul>
                </div>
 
           </div>
      </section>
 
      <!-- CONTACT -->
-     <section  data-stellar-background-ratio="0.5">
+     <section data-stellar-background-ratio="0.5">
           <div class="container" style="background-color: antiquewhite; padding: 100px; border-radius: 10px;">
                <div class="row" style="margin: 10px 0px 50px 0px">
                     <div class="col-md-offset-3 col-md-6 col-sm-12">
                          <form action="" method="post">
                               {% csrf_token %}
                               <div class="form-group">
-                                   <label for="team">Team:</label>
-                                   <select class="form-control" id="team" name="team">
-                                        {% for x in pro %}
-                                             <option value="{{x.id}}">{{x.project_name}}</option>
+                                   <label for="project">Project:</label>
+                                   <select class="form-control" id="project" name="project_id">
+                                        {% for x in project %}
+                                        <option value="{{x.id}}">{{x.project_name}}</option>
                                         {% endfor %}
                                    </select>
-                                 </div>
+                              </div>
+                              <div class="form-group">
+                                   <label for="team">Guide:</label>
+                                   <select class="form-control" id="team" name="guide">
+                                        {% for x in guide %}
+                                        <option value="{{x.id}}">{{x.user.username}}</option>
+                                        {% endfor %}
+                                   </select>
+                              </div>
                               <div class="form-group">
                                    <label for="batch">Batch name :</label>
                                    <input type="text" class="form-control" name="batch" id="batch">
@@ -163,9 +173,9 @@
                     </div>
                </div>
 
-               </div>
           </div>
-     </section>       
+          </div>
+     </section>
 
 
      <!-- FOOTER -->
@@ -176,7 +186,8 @@
                     <div class="copyright-text col-md-12 col-sm-12">
                          <div class="col-md-6 col-sm-6">
                               <p>Copyright &copy; 2018 Company Name - Design:
-                				<a rel="nofollow" href="http://tooplate.com">Tooplate</a></p>
+                                   <a rel="nofollow" href="http://tooplate.com">Tooplate</a>
+                              </p>
                          </div>
 
                          <div class="col-md-6 col-sm-6">
@@ -202,4 +213,5 @@
      <script src="/static/home/js/custom.js"></script>
 
 </body>
+
 </html>

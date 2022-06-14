@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-	<title>Soft Landing Page by Tooplate</title>
-	<!--
+     <title>Soft Landing Page by Tooplate</title>
+     <!--
 
     Template 2106 Soft Landing
 
@@ -26,6 +27,7 @@
      <link rel="stylesheet" href="/static/home/css/tooplate-style.css">
 
 </head>
+
 <body>
 
      <!-- PRE LOADER
@@ -55,17 +57,17 @@
 
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav" >
-                         <li><a href="" class="smoothScroll" style="color:black;" >Home</a></li>
+                    <ul class="nav navbar-nav">
+                         <li><a href="" class="smoothScroll" style="color:black;">Home</a></li>
                          <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
-                    </ul>    
+                    </ul>
                </div>
 
           </div>
      </section>
 
      <!-- CONTACT -->
-     <section  data-stellar-background-ratio="0.5">
+     <section data-stellar-background-ratio="0.5">
           <div class="container" style="background-color: antiquewhite; padding: 100px; border-radius: 10px;">
                <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-sm-12">
@@ -91,32 +93,31 @@
                          </table>
                     </div>
                </div>
-
-                    <div class="row" style="margin: 100px 0px">
-                         <div class="col-md-offset-1 col-md-12 col-sm-12">
-                              <table class="table">
-                                   <thead>
-                                        <tr>
-                                             <th>Teams</th>
-                                             <th>Guide</th>
-                                             <th>Project Name</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody>
-                                        {% for x in team %}
-                                        <tr>
-                                             <td>{{x.team.username}}</td>
-                                             <td>{{x.guide.user.username}}</td>
-                                             <td>{{x.project.project_name}}</td>
-                                        </tr>
-                                        {% endfor %}
-                                   </tbody>
-                              </table>
-                         </div>
+               <div class="row" style="margin: 100px 0px">
+                    <div class="col-md-offset-1 col-md-12 col-sm-12">
+                         <table class="table">
+                              <thead>
+                                   <tr>
+                                        <th>Roll_no</th>
+                                        <th>phone</th>
+                                        <th>Email</th>
+                                   </tr>
+                              </thead>
+                              <tbody>
+                                   {% for x in s %}
+                                   <tr>
+                                        <td>{{x.roll_no}}</td>
+                                        <td>{{x.phone}}</td>
+                                        <td>{{x.email_id}}</td>
+                                   </tr>
+                                   {% endfor %}
+                              </tbody>
+                         </table>
                     </div>
                </div>
           </div>
-     </section>       
+          </div>
+     </section>
 
 
      <!-- FOOTER -->
@@ -127,7 +128,8 @@
                     <div class="copyright-text col-md-12 col-sm-12">
                          <div class="col-md-6 col-sm-6">
                               <p>Copyright &copy; 2018 Company Name - Design:
-                				<a rel="nofollow" href="http://tooplate.com">Tooplate</a></p>
+                                   <a rel="nofollow" href="http://tooplate.com">Tooplate</a>
+                              </p>
                          </div>
 
                          <div class="col-md-6 col-sm-6">
@@ -153,4 +155,5 @@
      <script src="/static/home/js/custom.js"></script>
 
 </body>
+
 </html>

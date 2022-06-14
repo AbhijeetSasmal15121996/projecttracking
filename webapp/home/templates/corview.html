@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-	<title>Soft Landing Page by Tooplate</title>
-	<!--
+     <title>Soft Landing Page by Tooplate</title>
+     <!--
 
     Template 2106 Soft Landing
 
@@ -26,6 +27,7 @@
      <link rel="stylesheet" href="/static/home/css/tooplate-style.css">
 
 </head>
+
 <body>
 
      <!-- PRE LOADER
@@ -55,27 +57,27 @@
 
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav" >
-                         <li><a href="cord" class="smoothScroll" style="color:black;" >Home</a></li>
+                    <ul class="nav navbar-nav">
+                         <li><a href="cord" class="smoothScroll" style="color:black;">Home</a></li>
                          <li><a href="cord_details" class="smoothScroll" style="color:black;">Project Details</a></li>
                          <li><a href="coorreview" class="smoothScroll" style="color:black;">Reviews</a></li>
                          <li><a href="logout" class="smoothScroll" style="color:black;">Logout</a></li>
-                    </ul>    
+                    </ul>
                </div>
 
           </div>
      </section>
 
      <!-- CONTACT -->
-     <section  data-stellar-background-ratio="0.5">
+     <section data-stellar-background-ratio="0.5">
           <div class="container" style="background-color: antiquewhite; padding: 100px; border-radius: 10px;">
                <div class="row" style="margin: 10px 0px 50px 0px">
                     <div class="col-md-offset-3 col-md-6 col-sm-12">
                          <form action="" method="post">
                               {% csrf_token %}
                               <div class="form-group">
-                                <label for="review_name">Review name :</label>
-                                <input type="text" class="form-control" name="review_name" id="review_name">
+                                   <label for="review_name">Review name :</label>
+                                   <input type="text" class="form-control" name="review_name" id="review_name">
                               </div>
                               <div class="form-group">
                                    <label for="date">Date :</label>
@@ -93,10 +95,10 @@
                                    <label for="team">Team:</label>
                                    <select class="form-control" id="team" name="team">
                                         {% for x in data %}
-                                             <option value="{{x.id}}">{{x.team.team.username}}</option>
+                                        <option value="{{x.id}}">{{x.team.username}}</option>
                                         {% endfor %}
                                    </select>
-                                 </div>
+                              </div>
                               <button type="submit" class="btn btn-default">Submit</button>
                          </form>
                     </div>
@@ -114,7 +116,7 @@
                                    </tr>
                               </thead>
                               <tbody>
-                                   {% for x in data %}
+                                   {% for x in rev %}
                                    <tr>
                                         <td>{{x.review_name}}</td>
                                         <td>{{x.date}}</td>
@@ -128,9 +130,9 @@
                     </div>
                </div>
 
-               </div>
           </div>
-     </section>       
+          </div>
+     </section>
 
 
      <!-- FOOTER -->
@@ -141,7 +143,8 @@
                     <div class="copyright-text col-md-12 col-sm-12">
                          <div class="col-md-6 col-sm-6">
                               <p>Copyright &copy; 2018 Company Name - Design:
-                				<a rel="nofollow" href="http://tooplate.com">Tooplate</a></p>
+                                   <a rel="nofollow" href="http://tooplate.com">Tooplate</a>
+                              </p>
                          </div>
 
                          <div class="col-md-6 col-sm-6">
@@ -167,4 +170,5 @@
      <script src="/static/home/js/custom.js"></script>
 
 </body>
+
 </html>
